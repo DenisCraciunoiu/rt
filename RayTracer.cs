@@ -2,17 +2,8 @@
 
 namespace rt
 {
-    public class RayTracer
+    class RayTracer(Geometry[] geometries, Light[] lights)
     {
-        private Geometry[] geometries;
-        private Light[] lights;
-
-        public RayTracer(Geometry[] geometries, Light[] lights)
-        {
-            this.geometries = geometries;
-            this.lights = lights;
-        }
-
         private double ImageToViewPlane(int n, int imgSize, double viewPlaneSize)
         {
             return -n * viewPlaneSize / imgSize + viewPlaneSize / 2;
@@ -37,7 +28,7 @@ namespace rt
                     intersection = intr;
                 }
             }
-            
+
             return intersection;
         }
 
